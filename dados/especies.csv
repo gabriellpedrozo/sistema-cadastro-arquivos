@@ -1,3 +1,100 @@
-nome;idade;cidade;profissao;salario
-"Joao";20;"Lavras MG";"Estudante";1500
-"Luciana Maria"; 16;"Divinopolis";"Linda";5000
+1;"Tubarão Branco";"Carcharodon carcharias";"Oceanos";4.5
+2;"Baleia Azul";"Balaenoptera musculus";"Oceanos profundos";24.0
+3;"Golfinho Comum";"Delphinus delphis";"Oceanos";2.5
+4;"Polvo Gigante";"Enteroctopus dofleini";"Fundo do mar";5.0
+5;"Tartaruga Verde";"Chelonia mydas";"Costas tropicais";1.5
+6;"Peixe-palhaço";"Amphiprioninae";"Recifes de coral";0.1
+7;"Enguia Elétrica";"Electrophorus electricus";"Água doce";2.0
+8;"Cavalo-marinho";"Hippocampus";"Águas rasas";0.2
+9;"Raia Manta";"Mobula birostris";"Oceanos";7.0
+10;"Estrela-do-mar";"Asteroidea";"Fundo do mar";0.3
+11;"Tubarão Martelo";"Sphyrna mokarran";"Oceanos";4.0
+12;"Baiacu";"Tetraodontidae";"Recifes de coral";0.5
+13;"Atum";"Thunnus";"Oceanos";2.5
+14;"Sardinha";"Sardina pilchardus";"Oceanos";0.2
+15;"Anchova";"Engraulis encrasicolus";"Oceanos";0.2
+16;"Lula Gigante";"Architeuthis dux";"Oceanos profundos";13.0
+17;"Caranguejo";"Brachyura";"Costas rochosas";0.3
+18;"Lagosta";"Nephropidae";"Fundo do mar";1.2
+19;"Ostra";"Ostreidae";"Recifes";0.2
+20;"Mexilhão";"Mytilidae";"Costas";0.1
+21;"Peixe-espada";"Xiphias gladius";"Oceanos";3.0
+22;"Dourado";"Coryphaena hippurus";"Oceanos";2.0
+23;"Robalo";"Centropomus undecimalis";"Estuários";1.0
+24;"Tilápia Marinha";"Oreochromis";"Água salobra";0.5
+25;"Moreia";"Muraenidae";"Recifes";1.5
+26;"Peixe-lua";"Mola mola";"Oceanos";3.0
+27;"Arraia Elétrica";"Torpediniformes";"Fundo do mar";1.0
+28;"Peixe-anjo";"Pomacanthidae";"Recifes";0.4
+29;"Peixe-borboleta";"Chaetodontidae";"Recifes";0.3
+30;"Peixe-leão";"Pterois";"Recifes";0.4
+31;"Tubarão Tigre";"Galeocerdo cuvier";"Oceanos";5.5
+32;"Baleia Jubarte";"Megaptera novaeangliae";"Oceanos";16.0
+33;"Orca";"Orcinus orca";"Oceanos frios";8.0
+34;"Foca";"Phocidae";"Regiões polares";2.0
+35;"Leão-marinho";"Otariinae";"Costas rochosas";2.5
+36;"Morsa";"Odobenus rosmarus";"Ártico";3.0
+37;"Narval";"Monodon monoceros";"Ártico";5.0
+38;"Beluga";"Delphinapterus leucas";"Ártico";4.0
+39;"Peixe-gato";"Siluriformes";"Água doce";1.5
+40;"Piranha";"Serrasalmus";"Água doce";0.3
+41;"Arapaima";"Arapaima gigas";"Rio Amazonas";3.0
+42;"Peixe-boi";"Trichechus";"Água doce";3.5
+43;"Tubarão-Baleia";"Rhincodon typus";"Oceanos";12.0
+44;"Camarão";"Caridea";"Oceanos";0.1
+45;"Krill";"Euphausiacea";"Oceanos frios";0.02
+46;"Peixe-serra";"Pristidae";"Costas";5.0
+47;"Enguia do mar";"Anguilliformes";"Oceanos";1.0
+48;"Peixe-galo";"Selene setapinnis";"Oceanos";0.5
+49;"Peixe-voador";"Exocoetidae";"Oceanos";0.3
+50;"Garoupa";"Epinephelinae";"Recifes";1.2
+51;"Bodião";"Labridae";"Recifes";0.4
+52;"Peixe-papagaio";"Scaridae";"Recifes";0.6
+53;"Peixe-paleta";"Zanclus cornutus";"Recifes";0.3
+54;"Peixe-sapo";"Antennariidae";"Fundo do mar";0.2
+55;"Peixe-víbora";"Chauliodus";"Oceanos profundos";0.3
+56;"Peixe-fantasma";"Stomiidae";"Oceanos profundos";0.2
+57;"Lula Vampiro";"Vampyroteuthis infernalis";"Oceanos profundos";0.3
+58;"Água-viva";"Cnidaria";"Oceanos";0.5
+59;"Caravela-portuguesa";"Physalia physalis";"Oceanos";0.3
+60;"Coral-cérebro";"Diploria";"Recifes";1.0
+61;"Coral-cervo";"Acropora";"Recifes";1.5
+62;"Esponja-do-mar";"Porifera";"Fundo do mar";0.4
+63;"Linguado";"Pleuronectidae";"Fundo do mar";0.6
+64;"Salmão";"Salmo salar";"Oceanos frios";1.5
+65;"Truta Marinha";"Salmo trutta";"Oceanos";1.0
+66;"Peixe-rei";"Atherinopsidae";"Costas";0.3
+67;"Peixe-cachorro";"Caranx";"Oceanos";1.2
+68;"Barracuda";"Sphyraena";"Oceanos";2.0
+69;"Xaréu";"Carangidae";"Oceanos";1.5
+70;"Pargo";"Lutjanidae";"Recifes";1.0
+71;"Peixe-cirurgião";"Acanthuridae";"Recifes";0.4
+72;"Peixe-folha";"Taeniura";"Fundo do mar";0.5
+73;"Peixe-pedra";"Synanceia";"Recifes";0.3
+74;"Peixe-dragão";"Stomiiformes";"Oceanos profundos";0.4
+75;"Peixe-lanterna";"Myctophidae";"Oceanos profundos";0.2
+76;"Peixe-boca-grande";"Megachasma pelagios";"Oceanos";5.0
+77;"Tubarão Frade";"Cetorhinus maximus";"Oceanos";8.0
+78;"Tubarão Galha Branca";"Carcharhinus longimanus";"Oceanos";3.0
+79;"Tubarão Azul";"Prionace glauca";"Oceanos";3.5
+80;"Baleia Fin";"Balaenoptera physalus";"Oceanos";20.0
+81;"Baleia Seis";"Balaenoptera borealis";"Oceanos";15.0
+82;"Golfinho Nariz de Garrafa";"Tursiops truncatus";"Oceanos";3.0
+83;"Golfinho-Risso";"Grampus griseus";"Oceanos";3.8
+84;"Peixe-sol";"Mola alexandrini";"Oceanos";2.5
+85;"Peixe-bagre marinho";"Ariidae";"Estuários";1.0
+86;"Lula Comum";"Loligo vulgaris";"Oceanos";0.6
+87;"Polvo-comum";"Octopus vulgaris";"Fundo do mar";2.0
+88;"Caranguejo-aranha";"Majoidea";"Fundo do mar";0.4
+89;"Lagostim";"Nephrops norvegicus";"Fundo do mar";0.3
+90;"Camarão-tigre";"Penaeus monodon";"Oceanos";0.3
+91;"Peixe-zebra marinho";"Danio rerio";"Recifes";0.05
+92;"Peixe-cardume";"Clupeidae";"Oceanos";0.2
+93;"Peixe-agulha";"Belonidae";"Oceanos";0.8
+94;"Peixe-gobídeo";"Gobiidae";"Recifes";0.1
+95;"Peixe-pinguim";"Nototheniidae";"Antártico";0.7
+96;"Peixe-antártico";"Channichthyidae";"Antártico";1.2
+97;"Esturjão";"Acipenseridae";"Água doce";3.0
+98;"Peixe-arco-íris";"Melanotaeniidae";"Água doce";0.1
+99;"Tubarão Leopardo";"Triakis semifasciata";"Oceanos";2.0
+100;"Peixe-trombeta";"Aulostomus maculatus";"Recifes";0.9
