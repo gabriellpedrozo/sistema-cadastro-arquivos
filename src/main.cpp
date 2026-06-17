@@ -169,6 +169,91 @@ void menuOrdenar(EspecieMarinha v[]){
 
 }
 
+void buscarPorId(EspecieMarinha v[]){
+    
+    ordenarPorId(v);
+
+    int id;
+    cout << "Digite o Id da especie: ";
+    cin >> id;
+
+    int inicio = 0, fim = pos - 1, meio, posicao = -1;
+    bool achou = false;
+    
+    while(inicio <= fim){
+        meio = (inicio + fim) / 2;
+
+        if(id == v[meio].id){
+        posicao = meio;
+        achou = true;
+        inicio = meio + 1; // pra sair do loop
+        }else if(id > v[meio].id){
+            inicio = meio + 1; // o que procuro ta na direita
+        }else {
+            fim = meio - 1;// o que procuro ta na esquerda
+        }
+    }
+
+    if (achou) {
+        cout << "Posicao: #" << posicao + 1 << endl;
+        cout << "Nome comum: " << v[posicao].nomeComum << endl;
+        cout << "Nome cientifico: " << v[posicao].nomeCientifico << endl;
+    } else {
+        cout << "Nao existe especie com esse ID." << endl;
+    }
+}
+
+void buscarPorTamanho(EspecieMarinha v[]) {
+    ordenarPorTamanho(v); // garante que está ordenado por tamanho 
+    float tamanho;
+    cout << "Digite o tamanho medio da especie (cm): ";
+    cin >> tamanho;
+
+    int inicio = 0, fim = pos - 1, meio, posicao = -1;
+    bool achou = false;
+
+    while (inicio <= fim) {
+        meio = (inicio + fim) / 2;
+
+        if (tamanho == v[meio].tamanhoMedio) {
+            posicao = meio;
+            achou = true;
+            inicio = fim + 1;
+        }else if (tamanho > v[meio].tamanhoMedio) {
+            inicio = meio + 1; //  maiores ficam a direita menor -> maior
+        }else {
+            fim = meio - 1; // valores menores ficam à esquerda
+        }
+    }
+
+    if (achou) {
+        cout << "Posicao: #" << posicao + 1 << endl;
+        cout << "Nome comum: " << v[posicao].nomeComum << endl;
+        cout << "ID: " << v[posicao].id << endl;
+    } else {
+        cout << "Nao existe especie com esse tamanho." << endl;
+    }
+}
+
+void menuBuscar(EspecieMarinha v[]) {
+    int opc;
+    cout << endl;
+    cout << "Buscar por:" << endl;
+    cout << "1 - ID" << endl;
+    cout << "2 - Tamanho medio" << endl;
+    cout << "3 - Voltar" << endl;
+    cin >> opc;
+
+    if (opc == 1) {
+        buscarPorId(v);
+    }else if (opc == 2) {
+        buscarPorTamanho(v);
+    }else if (opc == 3) {// volta, não faz nada
+    }else {
+        cout << "Opcao invalida!" << endl;
+    }
+}
+
 int exibirMenu() {
     int opcao;
     cout << endl;
@@ -178,6 +263,7 @@ int exibirMenu() {
     cout << "2 - Inserir especie" << endl;
     cout << "3 - Remover especie" << endl;
     cout << "4 - Ordenar especies" << endl;
+    cout << "5 - Buscar especie" << endl;
     cin >> opcao;
     return opcao;
 }
@@ -193,6 +279,8 @@ void executarOpcao(int opcao, EspecieMarinha *&v) {
         remover(v);
     } else if (opcao == 4){
         menuOrdenar(v);
+    }else if (opcao == 5){
+        menuBuscar(v);
     }else {
         cout << "Opcao invalida!" << endl;
     }
