@@ -55,7 +55,7 @@ void inserir(EspecieMarinha *&v){ // adiciona item novo manualmente
     cout << "Digite o habitat: ";
     getline(cin, nova.habitat);
 
-    cout << "Digite o tamanho medio (cm): ";
+    cout << "Digite o tamanho medio (m): ";
     cin >> nova.tamanhoMedio;
 
     nova.removido = false; //a especie nova começa ativa
@@ -186,7 +186,7 @@ void buscarPorId(EspecieMarinha v[]){
         if(id == v[meio].id){
         posicao = meio;
         achou = true;
-        inicio = meio + 1; // pra sair do loop
+        inicio = fim + 1; // pra sair do loop
         }else if(id > v[meio].id){
             inicio = meio + 1; // o que procuro ta na direita
         }else {
@@ -206,7 +206,7 @@ void buscarPorId(EspecieMarinha v[]){
 void buscarPorTamanho(EspecieMarinha v[]) {
     ordenarPorTamanho(v); // garante que está ordenado por tamanho 
     float tamanho;
-    cout << "Digite o tamanho medio da especie (cm): ";
+    cout << "Digite o tamanho medio da especie (m): ";
     cin >> tamanho;
 
     int inicio = 0, fim = pos - 1, meio, posicao = -1;
@@ -254,6 +254,25 @@ void menuBuscar(EspecieMarinha v[]) {
     }
 }
 
+void gravar(EspecieMarinha v[]) {
+    
+    ofstream arq("../dados/especies.csv");
+
+    arq << "id;nomeComum;nomeCientifico;habitat;tamanhoMedio" << endl;
+
+    for (int i = 0; i < pos; i++) {
+        if (v[i].removido == false) { // só grava os que ainda estão ativos
+            arq << v[i].id << ";"
+                << v[i].nomeComum << ";"
+                << v[i].nomeCientifico << ";"
+                << v[i].habitat << ";"
+                << v[i].tamanhoMedio << endl;
+        }
+    }
+
+    cout << "Arquivo gravado com sucesso!" << endl;
+}
+
 int exibirMenu() {
     int opcao;
     cout << endl;
@@ -264,6 +283,7 @@ int exibirMenu() {
     cout << "3 - Remover especie" << endl;
     cout << "4 - Ordenar especies" << endl;
     cout << "5 - Buscar especie" << endl;
+    cout << "6 - Gravar arquivo" << endl;
     cin >> opcao;
     return opcao;
 }
@@ -281,7 +301,9 @@ void executarOpcao(int opcao, EspecieMarinha *&v) {
         menuOrdenar(v);
     }else if (opcao == 5){
         menuBuscar(v);
-    }else {
+    }else if(opcao == 6){
+        gravar(v);
+    }else{
         cout << "Opcao invalida!" << endl;
     }
 }
