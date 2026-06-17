@@ -15,40 +15,130 @@ struct EspecieMarinha { //Struct principal
     bool removido = false;  //REMOÇÃO LÓGICA ((false = ativo no sistema) (true = removido (não aparece mais nas listagens)))
 };
 
+void listar(EspecieMarinha v[]){
+
+    cout << endl;
+    cout << "--- LISTAGEM DE ESPECIES ---" << endl;
+    
+    bool alguma = false; // controla pra ver se tem alguma especie ativa 
+    
+    for(int i = 0; i < pos; i++){
+        if(v[i].removido == false){ // so exibe se não estiver removido 
+            alguma = true;
+            cout << endl << "#" << i + 1 << endl;
+            cout << "ID: " << v[i].id << endl;
+            cout << "Nome comum: " << v[i].nomeComum << endl;
+            cout << "Nome cientifico: " << v[i].nomeCientifico << endl;
+            cout << "Habitat: "         << v[i].habitat << endl;
+            cout << "Tamanho medio: "   << v[i].tamanhoMedio << " cm" << endl;
+        }
+    }
+
+    if(!alguma){
+        cout << "Nenhuma especie cadastrada." << endl;
+    }
+}
+
+void inserir(EspecieMarinha *&v){ // adiciona item novo manualmente 
+    EspecieMarinha nova;
+
+    cout << "Digite o ID: ";
+    cin >> nova.id;
+    cin.ignore(); // tira um espaço que tava dando b.o aq 
+
+    cout<< "Digite o nome comum: ";
+    getline(cin, nova.nomeComum);
+
+    cout << "Digite o nome cientifico: ";
+    getline(cin, nova.nomeCientifico);
+
+    cout << "Digite o habitat: ";
+    getline(cin, nova.habitat);
+
+    cout << "Digite o tamanho medio (cm): ";
+    cin >> nova.tamanhoMedio;
+
+    nova.removido = false; //a especie nova começa ativa
+
+    if (pos >= cap) { // redimensiona se precisar
+        EspecieMarinha* aux = new EspecieMarinha[cap + 10];
+        for (int i = 0; i < pos; i++)
+            aux[i] = v[i];
+        delete[] v;
+        v = aux;
+        cap += 10;
+    }
+
+    v[pos] = nova; //guarda a nova na posicao livre
+    pos++; // avança posção
+    
+    cout << "Especie inserida com sucesso!" << endl;
+}
+
+int exibirMenu() {
+    int opcao;
+    cout << endl;
+    cout << "==== ESPECIES MARINHAS ====" << endl;
+    cout << "0 - Sair" << endl;
+    cout << "1 - Listar especies" << endl;
+    cout << "2 - Inserir especie" << endl;
+    cin >> opcao;
+    return opcao;
+}
+
+void executarOpcao(int opcao, EspecieMarinha *&v) {
+    if (opcao == 0) {
+        cout << "Encerrando" << endl;
+    } else if (opcao == 1) {
+        listar(v);
+    } else if (opcao == 2) {
+        inserir(v);
+    } else {
+        cout << "Opcao invalida!" << endl;
+    }
+}
+
 int main(){
     
-    ifstream arq("especies.csv"); // abre o arquivo pra leitura
+    ifstream arq("../dados/especies.csv"); // abre o arquivo pra leitura
 
     string cabecalho;
     getline(arq, cabecalho);// le e descarta a priemira linha 
 
-    EspecieMarinha* p = new EspecieMarinha[cap]; //aloca dinamicamente o vetor com capacidade de 40(lá em cima cap = 40)
+    EspecieMarinha* especies = new EspecieMarinha[cap]; //aloca dinamicamente o vetor com capacidade de 40(lá em cima cap = 40)
     
-    while(arq >> p[pos].id){
+    while(arq >> especies[pos].id){
         arq.ignore(); //ignora a virgula depois de id
 
-        getline(arq, p[pos].nomeComum, ';'); //le ate a proxima virgula
-        getline(arq, p[pos].nomeCientifico, ';'); // ""
-        getline(arq, p[pos].habitat, ';'); // ""
+        getline(arq, especies[pos].nomeComum, ';'); //le ate a proxima virgula
+        getline(arq, especies[pos].nomeCientifico, ';'); // ""
+        getline(arq, especies[pos].habitat, ';'); // ""
 
-        arq >> p[pos].tamanhoMedio; // lê o float (último da linha)
-        arq.ignore();               // ignora o 'endl' para ir para próxima linha
+        arq >> especies[pos].tamanhoMedio; // lê o float (último da linha)
+        arq.ignore(); // ignora o 'endl' para ir para próxima linha
 
-        p[pos].removido = false; //deixa que o registro lido começa ativo
+        especies[pos].removido = false; //deixa que o registro lido começa ativo
 
         pos++; //avança posição
 
-        if(pos >= cap) {
+        if(pos >= cap) { 
             EspecieMarinha* novo = new EspecieMarinha [cap + 10];
 
             for(int i = 0; i < pos; i++)
-            novo[i] = p[i];//copia tudo  pro novo veto
+            novo[i] = especies[i];//copia tudo  pro novo veto
 
-            delete[]p;// libera o vetor antigo da memoria
-            p = novo;// p aponta pro novo
+            delete[]especies;// libera o vetor antigo da memoria
+            especies = novo;// p aponta pro novo
             cap += 10; // atualiza a capacidade
         }
     }
-    delete[]p; //libera memoria pra finalizar 
+        int opcao = -1;
+
+        while(opcao != 0){
+            opcao = exibirMenu();
+            executarOpcao(opcao, especies);
+        }
+
+    delete[]especies; //libera memoria pra finalizar 
     return 0;
 }
